@@ -1,11 +1,12 @@
-//var a = process.argv.splice(2);
-var a = process.argv;
+
+var fs = require('fs');
+
+var a = fs.readFileSync(process.argv[2]).toString();
 var result = 0;
 
-for (var i = 0; i < a.length; i++){
-    var num = parseInt(a[i], 10);
-    if(!isNaN(num)){
-        result += num;
+for(var i =0; i < a.length; i++){
+    if(a[i] == "\n"){
+        result++ ;
     }
 }
 console.log(result);
